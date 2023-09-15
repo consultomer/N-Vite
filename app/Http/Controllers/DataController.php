@@ -23,7 +23,7 @@ class DataController extends Controller
                 'order_id' => $order,
             ]);
         }
-        return view('order');
+        return redirect()->route('order');
     }
 
     public function query(Request $request)

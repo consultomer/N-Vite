@@ -17,10 +17,7 @@
     </div>
 </div>
 <div id="query">
-    <a class="btn btn-primary"
-        href="{{ route('list', ['image_src' => $data]) }}">Want
-        to Send Mail</a>
-    <a class="btn btn-primary"
+    <a class="col-11 btn btn-primary"
         href="{{ route('payment', ['image_src' => $data]) }}">Payment
         </a>
 </div>
