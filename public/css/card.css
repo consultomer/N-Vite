@@ -1,0 +1,41 @@
+.c-item {
+    height: 500px;
+}
+.c-img {
+    height: 100%;
+    object-fit: fill;
+}
+main h1,p {
+    color: black;
+}
+#query {
+    width: 450px;
+    margin: 20px auto;
+    padding: 40px;
+    background-color: #0D1321;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+.btn-primary {
+    cursor: pointer;
+    margin: 15px;
+    width: auto;
+    padding: 10px;
+    background-color: #1D2D44;
+    color: #748CAB;
+    border-radius: 6px;
+    border: none;
+    font-size: 17px;
+    text-align: center;
+}

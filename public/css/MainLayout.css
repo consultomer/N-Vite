@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: #0D1321;
+
+}
+
+.logo {
+    line-height: 40px;
+    font-size: 30px;
+    font-weight: 800;
+    color: #748CAB;
+    letter-spacing: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+
+}
+
+.logo {
+    cursor: pointer;
+}
+
+header b {
+    font-size: 70px;
+    color: #7f00ff;
+}
+
+header a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #748CAB;
+}
+
+.nav_link li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.dropbtn {
+    /* color: #3E5C76; */
+    text-decoration: none;
+    font-size: 18px;
+    background-color: #0D1321;
+    border: none;
+    color: #748CAB;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1D2D44;
+    min-width: 160px;
+    box-shadow: 10px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: #748CAB;
+    padding: 20px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #0D1321;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.loginbtn {
+    cursor: pointer;
+    margin: 10px;
+    width: auto;
+    padding: 10px;
+    background-color: #1D2D44;
+    color: #748CAB;
+    border-radius: 6px;
+    border: none;
+    font-size: 17px;
+    text-align: center;
+}
+
+.loginbtn:hover {
+    background-color: #3E5C76;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Footer CSS Only */
+footer {
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    margin-top: auto;
+    color: #1D2D44;
+    font-size: 12px;
+    background-color: #0D1321;
+}
+
+footer ul {
+    list-style-type: none;
+
+}
+
+footer a {
+    color: #748CAB;
+    text-decoration: none;
+    font-size: 18px;
+}
