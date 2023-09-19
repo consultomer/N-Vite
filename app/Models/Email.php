@@ -8,9 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Email extends Model
 {
     use HasFactory;
+    protected $table = "email";
     protected $fillable = [
         'name',
-        'email',
         'order_id',
+        'email',
     ];
+    public function order()
+    {
+        return $this->belongsTo(Order::class, 'order_id', 'order_id');
+    }
 }

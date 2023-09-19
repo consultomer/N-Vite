@@ -15,6 +15,6 @@ class RegisterController extends Controller
         $users->email = $request['email'];
         $users->password = \Hash::make($request['password']);
         $users->save();
-        return view('home');
+        return redirect('/');
     }
 }

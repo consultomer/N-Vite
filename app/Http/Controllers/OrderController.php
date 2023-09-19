@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Invitation;
+use App\Mail\OrderShipped;
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\Email;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -20,7 +24,18 @@ class OrderController extends Controller
     public function edit($id, $status)
     {
         $order = Order::findOrFail($id);
-
+        
+        if ($order->delivery_method === 'Email') {
+            $emailList = Email::where('order_id', $id)->get();
+            foreach ($emailList as $email) {
+                Mail::to($email->email)->send(new Invitation($order));
+            }
+            Mail::to($order->email)->send(new OrderShipped($order));
+            return redirect()->back()->with('Success', 'Mail Sent Successfully');
+        } else {
+            Mail::to($order->userEmail)->send(new OrderShipped($order));
+            return redirect()->back()->with('Success', 'Mail Sent Successfully');
+        }
         $order->status = $status;
         $order->save();
 
