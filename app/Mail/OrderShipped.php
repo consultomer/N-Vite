@@ -3,22 +3,25 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Mail\Attachable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Mail\Attachment;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Storage;
 
 class OrderShipped extends Mailable
 {
     use Queueable, SerializesModels;
-
+    public $order;
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($order)
     {
-        //
+        $this->order = $order;
     }
 
     /**
@@ -34,13 +37,10 @@ class OrderShipped extends Mailable
     /**
      * Get the message content definition.
      */
-    public function content($order): Content
+    public function content(): Content
     {
         return new Content(
             view: 'mail.order',
-            with: [
-                'order' => $this->order,
-            ],
         );
     }
 
@@ -51,6 +51,8 @@ class OrderShipped extends Mailable
      */
     public function attachments(): array
     {
-        return [];
+        $imageUrl = ($this->order->image_src);
+        $attachment = Attachment::fromPath(public_path($imageUrl));
+        return [$attachment];
     }
 }

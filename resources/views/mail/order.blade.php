@@ -4,16 +4,15 @@
     <title>Order</title>
 </head>
 <body>
-    <h1>Order Mail</h1>
-    <h2>
-        {{ $order->firstname }}
-    </h2>
-    <h2>
-        {{ $order->lastname }}
-    </h2>
-    <h2>
-        {{ $order->id }}
-    </h2>
-    <!-- Add email content here -->
+    <h1>Thank you for your order</h1>
+    <p>Hi {{ $order['firstname'] }},</p>
+    <br>
+    <p>Your order has been placed successfully. Your Order number is #{{ $order['id']}}</p>
+    <br>
+    <p>Thank you for shopping with us.</p> 
+    <br>
+    <p>Regards,</p>
+    <p>N-Vite: Digital Invitations & Cards</p>
+    <img src="{{ asset($order['image_src']) }} " alt="">
 </body>
 </html>
