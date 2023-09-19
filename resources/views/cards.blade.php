@@ -11,16 +11,14 @@
     <div class="carousel-inner">
         <div class="carousel-item active c-item">
             <img src="{{ asset($data) }}" alt="Image" class="d-block w-50 m-auto c-img">
-            
-
         </div>
     </div>
 </div>
 <div id="query">
     <a class="col-11 btn btn-primary"
         href="{{ route('payment', ['image_src' => $data]) }}">Payment
-        </a>
+    </a>
 </div>
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('js/card.js') }}"></script>
-    @endsection
+<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('js/card.js') }}"></script>
+@endsection

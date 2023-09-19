@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
 use App\Models\Query;
 use App\Models\Order;
 
@@ -23,19 +22,19 @@ class DataController extends Controller
                 'order_id' => $order,
             ]);
         }
+
         return redirect()->route('order');
     }
 
     public function query(Request $request)
     {
-
         $query = new Query;
         $query->first_name = $request['firstname'];
         $query->last_name = $request['lastname'];
         $query->email = $request['email'];
         $query->message = $request['message'];
         $query->save();
-        // return view('contactus');
+
         return redirect()->back()->with(['data' => 'Your Message has been Recieved Successfully.']);
     }
 
@@ -53,12 +52,15 @@ class DataController extends Controller
         $order->userEmail = $email;
         $order_id = $order->save() ? $order->id : null;
 
-        if ($request['method'] == "Home") {
+        if ($request['method'] == "Home")
+        {
             $order = Order::where('userEmail', $email)->get();
+
             return view('order', ['order' => $order]);
-        } else {
+        } 
+        else
+        {
             return redirect()->route('list', ['order' => $order_id]);
-            // dd($order_id);
         }
     }
 

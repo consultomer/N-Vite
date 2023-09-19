@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\SubCategory;
-use App\Models\Category;
 use Illuminate\Support\Facades\DB;
 
 class SubCategoryController extends Controller
@@ -16,6 +15,7 @@ class SubCategoryController extends Controller
         $category = DB::table('category')
             ->select('category_id', 'name')
             ->get();
+
         return view('admin.subcategory', ['subcate' => $subcate,'category' => $category]);
     }
     public function add_subcat(Request $request)
@@ -31,8 +31,8 @@ class SubCategoryController extends Controller
     public function delete_subcat($id)
     {
         $subcate = DB::table('subcategory')
-        ->where('subcategory_id', $id)
-        ->delete();
+            ->where('subcategory_id', $id)
+            ->delete();
 
         return redirect()->route('admin.subcategory');
     }

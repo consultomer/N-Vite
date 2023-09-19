@@ -17,6 +17,7 @@ class OrderController extends Controller
         $order = DB::table('order')
             ->select('id', 'firstname', 'userEmail', 'delivery_method', 'status')
             ->get();
+
         return view('admin.order', ['order' => $order]);
     }
 
@@ -24,21 +25,26 @@ class OrderController extends Controller
     {
         $order = Order::findOrFail($id);
         
-        if ($order->delivery_method === 'Email') {
+        if ($order->delivery_method === 'Email')
+        {
             $emailList = Email::where('order_id', $id)->get();
-            foreach ($emailList as $email) {
+            foreach ($emailList as $email) 
+            {
                 Mail::to($email->email)->send(new Invitation($order, $email));
             }
             Mail::to($order->userEmail)->send(new OrderShipped($order));
             $order->status = $status;
             $order->save();
-            return redirect()->back()->with('Success', 'Mail Sent Successfully');
-        } else {
 
+            return redirect()->back();
+        } 
+        else
+        {
             Mail::to($order->userEmail)->send(new OrderShipped($order));
             $order->status = $status;
             $order->save();
-            return redirect()->back()->with('Success', 'Mail Sent Successfully');
+
+            return redirect()->back();
         }
     }
 }

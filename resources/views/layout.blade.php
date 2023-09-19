@@ -28,7 +28,8 @@
                         <button class="dropbtn">Category</button>
                         <div class="dropdown-content">
                             @foreach(DB::table('category')->get() as $cat)
-                            <a href="{{ route('category', ['id' => $cat->category_id]) }}">{{ $cat->name }}</a>
+                                <a
+                                    href="{{ route('category', ['id' => $cat->category_id]) }}">{{ $cat->name }}</a>
                             @endforeach
                         </div>
                     </div>
@@ -40,6 +41,7 @@
                 @csrf
                 <button class="loginbtn" type="submit">Logout</button>
                 <a class="loginbtn" href="{{ route('order') }}">Orders</a>
+                <a class="loginbtn" href="">Cart</a>
             </form>
         @else
             <a class="loginbtn" href="{{ route('login') }}">Login/Register</a>

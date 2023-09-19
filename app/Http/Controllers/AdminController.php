@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Models\Admin;
 
 class AdminController extends Controller
@@ -11,12 +10,13 @@ class AdminController extends Controller
     public function view()
     {
         $user = Admin::all();
+
         return view('admin.user', ['admin' => $user]);
     }
     public function delete($id)
     {
         $admin = Admin::findOrFail($id)
-        ->Delete();
+            ->Delete();
     
         return redirect()->route('admin.user');
     }

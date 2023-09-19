@@ -61,19 +61,19 @@ Route::get('/admin', function () {
 Route::middleware(['auths'])->group(function () {
     Route::get('/card/{id}', [DisplayController::class, 'card'])->name('view_card');
     Route::post('/cards', [DisplayController::class, 'capture'])->name('capture');
+    Route::post('/list', [DataController::class, 'store'])->name('data.store');
+    Route::post('/payment', [DataController::class, 'c_order'])->name('c_order');
+    Route::get('/order', [DataController::class, 'order'])->name('order');
+   
     Route::get('/card', function () {
         return view('card');
     })->name('card');
-
     Route::get('/list', function () {
         return view('list');
     })->name('list');
     Route::get('/payment', function () {
         return view('payment');
     })->name('payment');
-    Route::post('/list', [DataController::class, 'store'])->name('data.store');
-    Route::post('/payment', [DataController::class, 'c_order'])->name('c_order');
-    Route::get('/order', [DataController::class, 'order'])->name('order');
 });
 
 

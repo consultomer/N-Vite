@@ -18,6 +18,7 @@ class ItemController extends Controller
         $subcat = DB::table('subcategory')
             ->select('subcategory_id', 'category_id', 'name')
             ->get();
+
         return view('admin.item', ['items' => $items,'category' => $category, 'subcat' => $subcat]);
     }
     public function add_item(Request $request)
@@ -39,25 +40,26 @@ class ItemController extends Controller
     public function delete_item($item_id)
     {
         $item = DB::table('items')
-        ->where('item_id', $item_id)
-        ->delete();
+            ->where('item_id', $item_id)
+            ->delete();
 
         return redirect()->route('admin.item');
     }
     public function view_item($item_id)
     {
         $item = DB::table('items')
-        ->where('item_id', $item_id)
-        ->first();
+            ->where('item_id', $item_id)
+            ->first();
         $subcat = DB::table('subcategory')
             ->select('subcategory_id', 'category_id', 'name')
             ->get();
+
         return view('admin.edititem', ['item' => $item, 'subcat' => $subcat]);
     }
     public function update_item(Request $request, $item_id)
     {
-        if ($request->hasFile('image')) {
-            
+        if ($request->hasFile('image')) 
+        {
             $newImage = $request->file('image')->move('public');
             $item = Item::find($item_id);
             $item->image_src = $newImage;
@@ -71,6 +73,7 @@ class ItemController extends Controller
                 'price' => $request['price'],
                 'subcategory_id' => $request['subcategory_id'],
             ]);
+            
         return redirect()->route('admin.item');
     }
 }

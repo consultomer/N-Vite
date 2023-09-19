@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Query;
 use Illuminate\Support\Facades\DB;
 
 class QueryController extends Controller
@@ -12,6 +11,7 @@ class QueryController extends Controller
     {
         $queries = DB::table('query')
             ->get();
-            return view('admin.query', ['queries' => $queries]);
+
+        return view('admin.query', ['queries' => $queries]);
     }
 }

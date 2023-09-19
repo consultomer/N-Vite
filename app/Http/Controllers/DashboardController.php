@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Item;
 use App\Models\SubCategory;
@@ -18,6 +17,7 @@ class DashboardController extends Controller
         $subcat = SubCategory::count();
         $cat = Category::count();
         $admin = Admin::count();
+
         return view('admin.dashboard', ['subcate' => $subcat,'category' => $cat,'item' => $item,'order' => $order,'admin' => $admin]);
     }
 }
