@@ -21,6 +21,8 @@
                         <th scope="col">Name</th>
                         <th scope="col">User Email</th>
                         <th scope="col">Delivery Method</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
                         <th scope="col">Status</th>
                     </tr>
                 </thead>
@@ -31,6 +33,12 @@
                             <td>{{ $order->firstname }}</td>
                             <td>{{ $order->userEmail }}</td>
                             <td>{{ $order->delivery_method }}</td>
+                            <td>{{ $order->quantity }}</td>
+                            @if($order->delivery_method == 'Home')
+                                <td>{{ $order->quantity * $order->price }}</td>
+                            @else
+                                <td>{{ $order->price }}</td>
+                            @endif
                             @if($order->status == 'pending')
                                 <td><button type="button" class="btn btn-warning">Pending</button></td>
                             @elseif($order->status == 'approved')
@@ -40,8 +48,6 @@
                             @endif
                         </tr>
                     @endforeach
-
-                    </tr>
                 </tbody>
             </table>
         </div>

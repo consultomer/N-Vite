@@ -47,6 +47,8 @@ class DataController extends Controller
         $order->mobile = $request['mobile'];
         $order->address = $request['address'];
         $order->image_src = $request['image_src'];
+        $order->price = $request['price'];
+        $order->quantity = $request['quantity'];
         $order->delivery_method = $request['method'];
         $order->email = $request['email'];
         $order->userEmail = $email;
@@ -66,8 +68,7 @@ class DataController extends Controller
 
     public function order(Request $request)
     {
-        $order = DB::table('order')
-            ->select('id', 'firstname', 'userEmail', 'delivery_method', 'status')
+        $order = Order::where('userEmail', auth()->user()->email)
             ->get();
 
         return view('order', ['order' => $order]);

@@ -23,8 +23,10 @@ class DisplayController extends Controller
 
         return view('card', ['item' => $item]);
     }
+
     public function capture(Request $request)
     {
+        $price = $request['price'];
         $imageData = $request['imi'];
         $imagePath = '/images';
         $imageName = uniqid() . '.png';
@@ -32,6 +34,7 @@ class DisplayController extends Controller
         $imagepath = "images/" . $imageName;
         $image = Storage::url($imagepath);
             
-        return view('/cards', ['data' => $image]);
+        return view('/cards', ['image' => $image , 'price' => $price]);
     }
+
 }

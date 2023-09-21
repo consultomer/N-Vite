@@ -57,6 +57,7 @@
         <form method="post" action="{{ route('capture') }}" id="my-form">
             @csrf
             <input type="hidden" name="image" value="{{ $item->image_src }}">
+            <input type="hidden" name="price" value="{{ $item->price }}">
             <input hidden type="text" name="imi" id="imi">
             <a class="col-11 btn btn-primary" id="capture">Process Image</a>
             <input class="col-11 btn btn-primary" type="submit" id="btnSubmit" value="Next">

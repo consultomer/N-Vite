@@ -14,6 +14,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\QueryController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CartController;
 
 
 /*
@@ -60,6 +61,10 @@ Route::get('/admin', function () {
 
 Route::middleware(['auths'])->group(function () {
     Route::get('/card/{id}', [DisplayController::class, 'card'])->name('view_card');
+    Route::get('/cart', [CartController::class, 'view'])->name('cart');
+    Route::get('/cart.add', [CartController::class, 'cart_add'])->name('cart.add');
+    Route::get('cart.del/{id}', [CartController::class, 'cart_del'])->name('cart.del');
+    Route::post('/cart.place', [CartController::class, 'cart_place'])->name('cart.place');
     Route::post('/cards', [DisplayController::class, 'capture'])->name('capture');
     Route::post('/list', [DataController::class, 'store'])->name('data.store');
     Route::post('/payment', [DataController::class, 'c_order'])->name('c_order');

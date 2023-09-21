@@ -29,7 +29,13 @@
             <select name="method">
                 <option value="Home">Home delivery</option>
                 <option value="Email">Through Email</option>
-                <input type="hidden" name="image_src" value="{{ request()->get('image_src') }}">
+            </select>
+            <label for="quantity">Quantity:</label>
+                <input type="number" name="quantity" min="1" max="100" step="1" value="{{ $data['quantity'] }}">
+                <input type="hidden" name="image_src" value="{{ $data['image'] }}">
+                <input type="hidden" name="price" value="{{ $data['price'] }}">
+            <br>
+            <br>
                 <input type="submit" value="Place Order">
         </form>
     </div>

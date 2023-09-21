@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('userEmail');
             $table->string('delivery_method');
             $table->string('image_src');
+            $table->integer('price');
+            $table->integer('quantity');
             $table->enum('status', ['pending', 'approved', 'declined'])->default('pending');
             $table->timestamps();
         });

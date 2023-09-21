@@ -41,7 +41,7 @@
                 @csrf
                 <button class="loginbtn" type="submit">Logout</button>
                 <a class="loginbtn" href="{{ route('order') }}">Orders</a>
-                <a class="loginbtn" href="">Cart</a>
+                <a class="loginbtn" href="{{ route('cart') }}">Cart</a>
             </form>
         @else
             <a class="loginbtn" href="{{ route('login') }}">Login/Register</a>
