@@ -1,6 +1,6 @@
 # N-Vite: Digital Invitations & Cards
 
-> Final Year Project — BS Computer Science, Virtual University of Pakistan
+> Final Year Project — BS Software Engineering, Virtual University of Pakistan
 > **Author:** Omer Abdul Rehman (BC200200491) · **Supervisor:** Rizwana Noor
 
 N-Vite is a web platform that modernizes the traditional paper invitation. Customers browse a catalogue of invitation card designs (weddings, birthdays, parties, corporate events and more), personalize a card, and either order printed copies delivered to their door or send it out digitally by emailing it to a guest list — no paper required. An admin panel handles catalogue management, order fulfilment, and customer/contact-query oversight.
